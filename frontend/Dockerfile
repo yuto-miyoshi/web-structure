@@ -2,7 +2,7 @@
 FROM node:18.20.2 as build-stage
 
 ## 先行してインストールパッケージを定義する
-WORKDIR /ng-app
+WORKDIR /frontend
 COPY package*.json .
 RUN npm install
 
@@ -15,6 +15,6 @@ RUN npm run build
 # 2. リバースプロキシの設定
 FROM nginx:1.15
 
-COPY --from=build-stage /ng-app/dist/ng-app/browser /usr/share/nginx/html
+COPY --from=build-stage /frontend/dist/frontend/browser /usr/share/nginx/html
 
 COPY /proxy/nginx.conf /etc/nginx/nginx.conf
