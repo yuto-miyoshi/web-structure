@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.web_server.backend.model.ApiSampleModel;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @RequestMapping("/sample")
 public class SampleController {
 
+    @CrossOrigin
     @GetMapping("/{id}")
     public ResponseEntity<ApiSampleModel> getMethodName(@PathVariable Integer id) {
         ApiSampleModel model = new ApiSampleModel(id);
