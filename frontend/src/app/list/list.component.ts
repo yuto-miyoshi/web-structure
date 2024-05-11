@@ -12,8 +12,10 @@ export class ListComponent implements OnInit {
     constructor(private readonly apiExecutor: ApiExecutor) {}
 
     ngOnInit(): void {
-        this.apiExecutor.execute(1000).subscribe((result) => {
-            this.num = result.id;
+        this.apiExecutor.execute(1000).subscribe({
+            next: (result) => {
+                this.num = result.id;
+            }
         });
     }
 }
