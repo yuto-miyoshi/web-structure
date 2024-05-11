@@ -6,9 +6,9 @@ services:
     build: ./frontend
     container_name: "frontend-provider"
     ports:
-      - "4203:8080"
+      - "4200:8080"
   backend:
     build: ./backend
     container_name: "backend-server"
     ports:
-      - "9000:8080"
+      - "8080:8080"
